@@ -1,0 +1,18 @@
+<resources>
+    <dimen name="app_bar_height">180dp</dimen>
+
+    <!--for padding or margin-->
+    <dimen name="indent_0_5">0.5dp</dimen>
+    <dimen name="indent_1">1dp</dimen>
+    <dimen name="indent_6">6dp</dimen>
+    <dimen name="indent_8">8dp</dimen>
+    <dimen name="indent_10">10dp</dimen>
+    <dimen name="indent_16">16dp</dimen>
+    <dimen name="indent_20">20dp</dimen>
+    <dimen name="indent_60">60dp</dimen>
+
+    <!--for text size-->
+    <dimen name="txt_size_14">14sp</dimen>
+    <dimen name="txt_size_16">16sp</dimen>
+
+</resources>

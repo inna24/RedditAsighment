@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">RedditAssigment</string>
+    <string name="empty_view_message">No subreddit :( \n Please, try later</string>
+    <string name="txt_epty_message">Subreddit list is empty</string>
+
+</resources>

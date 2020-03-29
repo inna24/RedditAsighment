@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light_background"
+    android:fitsSystemWindows="true"
+    tools:context=".presentation.reddit.RedditActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCardsTab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:splitMotionEvents="false"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_rv_subreddit"/>
+
+    <include
+        android:id="@+id/layoutEmpty"
+        layout="@layout/empty_view"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

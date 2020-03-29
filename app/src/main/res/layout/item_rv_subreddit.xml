@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="com.example.redditassigment.presentation.reddit.bindings.BindingsConverter"/>
+        <variable
+            name="subreddit"
+            type="com.example.redditassigment.data.database.entity.SubredditEntity" />
+    </data>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/indent_10"
+    app:cardElevation="@dimen/indent_6">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTimePost"
+            style="@style/TextStyleSecondary"
+            android:layout_margin="@dimen/indent_16"
+            android:drawableStart="@drawable/ic_access_time"
+            android:drawablePadding="@dimen/indent_16"
+            android:text="@{subreddit.dateCreation}"
+            app:layout_constraintBottom_toTopOf="@id/topDivider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3 Hours ago" />
+
+        <include
+            android:id="@+id/topDivider"
+            layout="@layout/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/indent_0_5"
+            android:layout_marginStart="@dimen/indent_16"
+            android:layout_marginTop="@dimen/indent_16"
+            android:layout_marginEnd="@dimen/indent_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTimePost" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icRedditPost"
+            android:layout_width="@dimen/indent_60"
+            android:layout_height="@dimen/indent_60"
+            android:layout_margin="@dimen/indent_16"
+            android:scaleType="centerCrop"
+            app:urlImage="@{subreddit.url}"
+            app:errorDrawable="@{@drawable/ic_picture}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topDivider"
+            tools:srcCompat="@drawable/ic_picture" />
+
+        <include
+            android:id="@+id/middleDivider"
+            layout="@layout/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/indent_0_5"
+            android:layout_marginStart="@dimen/indent_16"
+            android:layout_marginTop="@dimen/indent_16"
+            android:layout_marginEnd="@dimen/indent_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icRedditPost" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRedditTitle"
+            style="@style/TextStyleMain"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/indent_16"
+            android:text="@{subreddit.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/middleDivider"
+            tools:text="Painted Busenitz Boots? Painted Busenitz Boots? Painted Busenitz Boots? Painted Buse" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRedditAuthor"
+            style="@style/TextStyleMain"
+            android:layout_marginTop="@dimen/indent_6"
+            android:textColor="@color/primary"
+            android:text="@{subreddit.author}"
+            app:layout_constraintStart_toStartOf="@id/txtRedditTitle"
+            app:layout_constraintTop_toBottomOf="@id/txtRedditTitle"
+            tools:text="theandsum" />
+
+        <include
+            android:id="@+id/bottomDivider"
+            layout="@layout/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/indent_0_5"
+            android:layout_marginStart="@dimen/indent_16"
+            android:layout_marginTop="@dimen/indent_16"
+            android:layout_marginEnd="@dimen/indent_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtRedditAuthor" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRedditCategory"
+            style="@style/TextStyleSecondary"
+            android:layout_marginTop="@dimen/indent_16"
+            android:layout_marginBottom="@dimen/indent_16"
+            android:text="@{subreddit.subreddit}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/txtRedditTitle"
+            app:layout_constraintTop_toBottomOf="@id/bottomDivider"
+            tools:text="funny" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRedditLikes"
+            style="@style/TextStyleSecondary"
+            android:drawableStart="@drawable/ic_like"
+            android:drawablePadding="@dimen/indent_8"
+            android:text="@{BindingsConverter.convertLong(subreddit.score)}"
+            app:layout_constraintBottom_toBottomOf="@id/txtRedditCategory"
+            app:layout_constraintEnd_toStartOf="@id/txtRedditComment"
+            app:layout_constraintStart_toEndOf="@id/txtRedditCategory"
+            app:layout_constraintTop_toTopOf="@id/txtRedditCategory"
+            tools:text="3.333" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRedditComment"
+            style="@style/TextStyleSecondary"
+            android:layout_marginStart="@dimen/indent_20"
+            android:drawableStart="@drawable/ic_comment"
+            android:drawablePadding="@dimen/indent_8"
+            android:text="@{BindingsConverter.convertLong(subreddit.numComments)}"
+            app:layout_constraintBottom_toBottomOf="@id/txtRedditCategory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtRedditLikes"
+            app:layout_constraintTop_toTopOf="@id/txtRedditCategory"
+            tools:text="85" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>

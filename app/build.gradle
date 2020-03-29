@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "com.example.redditassigment"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+ext {
+
+    material_version = '1.1.0'
+    cardview_version = '1.0.0'
+    constarint_version = '1.1.3'
+    multidex_version = '2.0.1'
+    browser_version = '1.2.0'
+    retrofit_version = '2.3.0'
+    loggin_interceptor_version = '4.3.1'
+    rx_kotlin_version = '2.3.0'
+    rx_android_version = '2.1.1'
+    koin_version = '2.1.5'
+    lifecycle_version = '2.2.0'
+    room_version = '2.2.5'
+    paging_version = '1.0.1'
+    version_anko = '0.10.4'
+    glide_version = '4.11.0'
+    glide_compiller_version = '4.6.1'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // androidx
+    implementation "com.google.android.material:material:${material_version}"
+    implementation "androidx.recyclerview:recyclerview:${material_version}"
+    implementation "androidx.cardview:cardview:${cardview_version}"
+    implementation "androidx.constraintlayout:constraintlayout:${constarint_version}"
+    implementation "androidx.multidex:multidex:${multidex_version}"
+    implementation "androidx.browser:browser:${browser_version}"
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${loggin_interceptor_version}"
+    // rx
+    implementation "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rx_android_version}"
+    // koin
+    implementation "org.koin:koin-androidx-scope:${koin_version}"
+    implementation "org.koin:koin-androidx-viewmodel:${koin_version}"
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle_version}"
+    // Room
+    implementation "androidx.room:room-runtime:${room_version}"
+    kapt "androidx.room:room-compiler:${room_version}"
+    implementation "androidx.room:room-rxjava2:${room_version}"
+    // Paging
+    implementation "android.arch.paging:runtime:$paging_version"
+    // anko
+    implementation "org.jetbrains.anko:anko-commons:$version_anko"
+    //Glide
+    implementation "com.github.bumptech.glide:glide:${glide_version}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${glide_compiller_version}"
+
+}
